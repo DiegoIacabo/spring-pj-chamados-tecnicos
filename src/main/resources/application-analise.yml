@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://${DB_ANALISE_URL:localhost}:${DB_ANALISE_PORT:3306}/${DB_ANALISE_NAME:analise-2TDSPJ-chamados-tecnicos}?createDatabaseIfNotExist=true
+    username: ${DB_ANALISE_USERNAME:root}
+    password: ${DB_ANALISE_PASSWORD:root}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true

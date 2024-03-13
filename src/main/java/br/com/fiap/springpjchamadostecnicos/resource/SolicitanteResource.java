@@ -47,8 +47,7 @@ public class SolicitanteResource {
     }
 
     @GetMapping(value = "/{id}/endereco")
-    public List<Endereco> getSolicitanteByEndereco(@PathVariable("idSolicitante") Long idSolicitante) {
-        Solicitante solicitante = repo.findById(idSolicitante).orElseThrow();
+    public List<Endereco> getSolicitanteByEndereco(@PathVariable("id") Long idSolicitante) {
         return enderecoRepository.findBySolicitanteId(idSolicitante);
     }
 
@@ -66,8 +65,7 @@ public class SolicitanteResource {
     }
 
     @GetMapping(value = "/{id}/telefone")
-    public List<Telefone> getSolicitanteByTelefone(@PathVariable("idSolicitante") Long idSolicitante) {
-        Solicitante solicitante = repo.findById(idSolicitante).orElseThrow();
+    public List<Telefone> getSolicitanteByTelefone(@PathVariable("id") Long idSolicitante) {
         return telefoneRepository.findBySolicitanteId(idSolicitante);
     }
 
