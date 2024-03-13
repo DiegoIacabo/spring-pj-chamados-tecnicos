@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: analise
+    active: desenvolvimento
   jpa:
     open-in-view: false
 
