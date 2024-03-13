@@ -18,17 +18,20 @@ public class EspecialidadeResource {
 
     @GetMapping
     public List<Especialidade> findAll() {
+
         return repo.findAll();
     }
 
     @Transactional
     @PostMapping
     public Especialidade save(@RequestBody Especialidade especialidade) {
+
         return repo.save(especialidade);
     }
 
     @GetMapping(value = "/{id}")
     public Especialidade findById(@PathVariable Long id) {
+
         return repo.findById(id).orElseThrow();
     }
 

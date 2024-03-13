@@ -1,7 +1,6 @@
 package br.com.fiap.springpjchamadostecnicos.resource;
 
 
-import br.com.fiap.springpjchamadostecnicos.entity.Chamado;
 import br.com.fiap.springpjchamadostecnicos.entity.Endereco;
 import br.com.fiap.springpjchamadostecnicos.entity.Solicitante;
 import br.com.fiap.springpjchamadostecnicos.entity.Telefone;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @RequestMapping(value = "/solicitante")
 @RestController
@@ -31,17 +29,20 @@ public class SolicitanteResource {
 
     @GetMapping
     public List<Solicitante> findAll() {
+
         return repo.findAll();
     }
 
     @Transactional
     @PostMapping
     public Solicitante save(@RequestBody Solicitante solicitante) {
+
         return repo.save(solicitante);
     }
 
     @GetMapping(value = "/{id}")
     public Solicitante findById(@PathVariable Long id) {
+
         return repo.findById(id).orElseThrow();
     }
 
@@ -79,6 +80,8 @@ public class SolicitanteResource {
         if (Objects.isNull(t)) return null;
         t.setSolicitante(solicitante);
         telefoneRepository.save(t);
+
+        return t;
     }
 
 }

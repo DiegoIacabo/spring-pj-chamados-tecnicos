@@ -19,17 +19,20 @@ public class OcorrenciaResource {
 
     @GetMapping
     public List<Ocorrencia> findAll() {
+
         return repo.findAll();
     }
 
     @Transactional
     @PostMapping
     public Ocorrencia save(@RequestBody Ocorrencia ocorrencia) {
+
         return repo.save(ocorrencia);
     }
 
     @GetMapping(value = "/{id}")
     public Ocorrencia findById(@PathVariable Long id) {
+
         return repo.findById(id).orElseThrow();
     }
 

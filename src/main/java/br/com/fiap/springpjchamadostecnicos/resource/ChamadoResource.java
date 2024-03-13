@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(value = "/chamado")
 @RestController
+@RequestMapping(value = "/chamado")
 public class ChamadoResource {
 
     @Autowired
@@ -17,18 +17,23 @@ public class ChamadoResource {
 
     @GetMapping
     public List<Chamado> findAll() {
+
         return repo.findAll();
     }
 
     @Transactional
     @PostMapping
     public Chamado save(@RequestBody Chamado chamado) {
+
         return repo.save(chamado);
     }
 
     @GetMapping(value = "/{id}")
     public Chamado findById(@PathVariable Long id) {
+
         return repo.findById(id).orElseThrow();
     }
 
 }
+
+

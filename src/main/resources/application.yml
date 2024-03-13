@@ -1,11 +1,10 @@
-server:
-  port: 80
 spring:
-  thymeleaf:
-    check-template-location: false
   profiles:
     active: desenvolvimento
-  servlet:
-    multipart:
-      max-file-size: 1GB
-      max-request-size: 1GB
+  jpa:
+    open-in-view: false
+
+server:
+  port: 80
+  compression:
+    enabled: true

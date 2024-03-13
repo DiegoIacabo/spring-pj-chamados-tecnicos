@@ -23,17 +23,20 @@ public class TecnicoResource {
 
     @GetMapping
     public List<Tecnico> findAll() {
+
         return repo.findAll();
     }
 
     @Transactional
     @PostMapping
     public Tecnico save(@RequestBody Tecnico tecnico) {
+
         return repo.save(tecnico);
     }
 
     @GetMapping(value = "/{id}")
     public Tecnico findById(@PathVariable Long id) {
+
         return repo.findById(id).orElseThrow();
     }
 
@@ -43,9 +46,9 @@ public class TecnicoResource {
 
         Tecnico tecnico = repo.findById(id).orElseThrow();
 
-        if(Objects.isNull(e)) return null;
+        if (Objects.isNull(e)) return null;
 
-        if(Objects.nonNull(e.getId())) {
+        if (Objects.nonNull(e.getId())) {
             Especialidade especialidade = especialidadeRepository.findById(e.getId()).orElseThrow();
             tecnico.getEspecialidades().add(especialidade);
             return tecnico;
@@ -53,5 +56,5 @@ public class TecnicoResource {
         tecnico.getEspecialidades().add(e);
 
         return tecnico;
-
+    }
 }
